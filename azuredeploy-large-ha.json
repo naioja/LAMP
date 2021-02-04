@@ -42,16 +42,20 @@
             "properties": {
                 "mode": "Incremental",
                 "parameters": {
-                    "_artifactsLocation":           { "value": "[parameters('_artifactsLocation')]" },
-                    "_artifactsLocationSasToken":   { "value": "[parameters('_artifactsLocationSasToken')]" },
-                    "redisDeploySwitch":            { "value": true },
-                    "sshPublicKey":                 { "value": "[parameters('sshPublicKey')]" },
-                    "autoscaleVmCountMax":          { "value": 20 },
-                    "mysqlPgresVcores":             { "value": 16 },
-                    "mysqlPgresStgSizeGB":          { "value": 512 },
-                    "fileServerType":               { "value": "gluster" },
-                    "fileServerDiskSize":           { "value": 512 },
-                    "CMSApplication":               { "value": "[parameters('CMSApplication')]" }
+                    "_artifactsLocation":               { "value": "[parameters('_artifactsLocation')]" },
+                    "_artifactsLocationSasToken":       { "value": "[parameters('_artifactsLocationSasToken')]" },
+                    "redisDeploySwitch":                { "value": true },
+                    "sshPublicKey":                     { "value": "[parameters('sshPublicKey')]" },
+                    "mysqlPgresVcores":                 { "value": 16 },
+                    "mysqlPgresStgSizeGB":              { "value": 512 },
+                    "fileServerType":                   { "value": "nfs" },
+                    "fileServerDiskSize":               { "value": 512 },
+                    "CMSApplication":                   { "value": "[parameters('CMSApplication')]" },
+                    "appGwSkuName":                     { "value": "Standard_v2" },
+                    "httpsTermination":                 { "value": "AppGw" },
+                    "appGwSslCertKeyVaultResourceId":   { "value": "/subscriptions/7f9b0964-9093-4e26-b299-451fea2d435d/resourceGroups/AJ-KV/providers/Microsoft.KeyVault/vaults/ajkv001" },
+                    "appGwSslCertKeyVaultSecretName":   { "value": "wildcard-ajoian-ro" },
+                    "siteURL":                          { "value": "wp.ajoian.ro" }
                 },
                 "templateLink": {
                     "uri": "[concat(parameters('_artifactsLocation'), 'azuredeploy.json', parameters('_artifactsLocationSasToken'))]"
